@@ -1,0 +1,13 @@
+Basic outline:
+
+Get python Flask setup
+
+Get java api request working(generic) then:
+
+	-api for leaflet map
+
+
+	-api for bar/scatter(tbd) graph
+
+
+Find a bootstrap and CSS we like for final presentation
