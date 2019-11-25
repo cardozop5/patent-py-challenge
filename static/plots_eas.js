@@ -20,26 +20,59 @@ d3.json(url).then(function (data) {
 )
 //This is where I tried to drill down into the data 
 //without resorting to csv.
-  // for (var i = 0; i < data.patents.length; i++) {
-  //   var patent = data.patents[i];
-  //   console.log(patent);
+// for (var i = 0; i < data.patents.length; i++) {
+//   var patent = data.patents[i];
+//   console.log(patent);
 
-  //   //console.log(patent.applications);
-  //   // patent.forEach((app)=> {
-
-
+//   //console.log(patent.applications);
+//   // patent.forEach((app)=> {
 
 
-  //   //   Object.entries(app).forEach(([key, value]) => {
-  //   //     //console.log(key, value);
-  //   //   })
-  //   // })
-  //   }
-  //}
 
-d3.csv("patent_eas_cleaned_nocpc.csv", function(data) {
+
+//   //   Object.entries(app).forEach(([key, value]) => {
+//   //     //console.log(key, value);
+//   //   })
+//   // })
+//   }
+//}
+
+d3.csv("patent_eas_cleaned_nocpc2.csv", function (data) {
     console.log(data);
-})
+
+
+
+
+    //Build line chart
+    var trace1 = {
+        type: "scatter",
+        mode: "lines",
+        name: name,
+        x: data.app_date,
+        y: data.app_number,
+        line: {
+            color: "#17BECF"
+        }
+    };
+
+    var data = [trace1];
+
+    var layout = {
+        title: `Patents Filed by Date`,
+        xaxis: {
+            //range: [startDate, endDate],
+            type: "date"
+        },
+        yaxis: {
+            autorange: true,
+            type: "linear"
+        }
+    };
+
+    Plotly.newPlot("plot", data, layout);
+
+});
+
 
 
 
