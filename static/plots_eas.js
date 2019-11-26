@@ -81,20 +81,36 @@ d3.csv("patent_eas_cleaned2.csv").then(data => {
     var data = [{
         values: pieValues,
         labels: pieLabels,
-        type: 'pie'
+        hole: 0.25,
+        pull: [0.7, 0, 0, 0, 0, 0, 0, 0, 0],
+        type: 'pie',
+        marker: {
+            colors: ['#CDDC39', '#673AB7', '#F44336', '#00BCD4', '#607D8B'],
+            line: {
+                color: 'black',
+                width: 3
+            }
+        },
     }];
 
     var layout = {
-        height: 400,
+        height: 600,
         width: 600,
         title: "Patent Category by Volume",
         showlegend: true,
         legend: {
-            title: "Category"
+            title: "Category",
+            
+            x: 1,
+            
+            y: -5
+
         },
-        grid: { rows: 1, columns: 2 }
+        //grid: { rows: 2, columns: 2 }
 
     };
+
+
 
     Plotly.newPlot('pie', data, layout);
 
