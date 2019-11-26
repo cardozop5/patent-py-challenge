@@ -1,52 +1,50 @@
 
 
 /* global Plotly */
-var url =
-    `https://www.patentsview.org/api/patents/query?q={%22_gte%22:{%22app_date%22:%222018-01-01%22}}&f=[%22app_date%22,%22cpc_section_id%22,%22app_number%22]`;
+// var url =
+//     `https://www.patentsview.org/api/patents/query?q={"_gte":{"app_date":"2018-11-20"}}&f=["app_date","cpc_section_id","app_number"]&o={"per_page": 10000}`;
 
 
 
 
 
-
-
-
-//This reads the data directly from the API
-d3.json(url).then(function (data) {
-    //console.log(data);
-
-    //console.log(data.patents);
+function unpackNumber(rows, index) {
+    return rows.map(function (row) {
+        return +row[index];
+    });
 }
-)
-//This is where I tried to drill down into the data 
-//without resorting to csv. It doesn't work.
-// for (var i = 0; i < data.patents.length; i++) {
-//   var patent = data.patents[i];
-//   console.log(patent);
 
-//   //console.log(patent.applications);
-//   // patent.forEach((app)=> {
-//   //   Object.entries(app).forEach(([key, value]) => {
-//   //     //console.log(key, value);
-//   //   })
-//   // })
-//   }
-//}
-
+function unpack(rows, index) {
+    return rows.map(function (row) {
+        return row[index];
+    });
+}
 //This is where my line graph should go
-d3.csv("patent_eas_cleaned_nocpc2.csv", function (response) {
-    console.log(response);
+d3.csv("patent_eas_cleaned_nocpc2.csv").then(response => {
+    console.log("response", response);
 
-    function unpack(rows, key) {
-        return rows.map(function(row) { return row[key]; });
-      }
+    app_id = unpackNumber(response, "app_id")
+    //console.log("app_date", app_date)
+    app_number = unpackNumber(response, "app_number")
+    app_date = unpack(response, "app_date")
+    parseTime = d3.timeParse('%m/%d/%Y')
+    date_list = app_date.map(d => d = parseTime(d))
+    console.log("app_date", app_date)
+    date_list.sort(function (a, b) {
+        var c = new Date(a.date);
+        var d = new Date(b.date);
+        return c - d;
+    });
+    // function unpack(rows, key) {
+    //     return rows.map(function(row) { return row[key]; });
+    //   }
     //Build line chart
     var trace1 = {
-        type: "scatter",
-        mode: "lines",
+        type: "bar",
+        //mode: "lines",
         name: name,
-        x: response.app_id,
-        y: response.app_number,
+        x: date_list,
+        y: app_number,
         line: {
             color: "#17BECF"
         }
@@ -57,7 +55,7 @@ d3.csv("patent_eas_cleaned_nocpc2.csv", function (response) {
     var layout = {
         title: `Patents Filed by Date`,
         xaxis: {
-            range:  ['2018-17-01', '2019-12-31'],
+            //range: app_date,
             type: "date"
         },
         yaxis: {
@@ -72,10 +70,13 @@ d3.csv("patent_eas_cleaned_nocpc2.csv", function (response) {
 
 
 //This is where my pie chart should go
-d3.csv("patent_eas_cleaned2.csv", function (data) {
-    //console.log(data);
-    pieValues = data.app_number;
-    pieLabels = data.cpc_section_id;
+d3.csv("patent_eas_cleaned2.csv").then(data => {
+    console.log("data", data);
+    cpc_section_id = unpack(data, "cpc_section_id")
+    //console.log("app_date", app_date)
+    app_number = unpackNumber(data, "app_number")
+    pieValues = app_number;
+    pieLabels = cpc_section_id;
     //console.log(pieLabels);
     var data = [{
         values: pieValues,
@@ -85,13 +86,13 @@ d3.csv("patent_eas_cleaned2.csv", function (data) {
 
     var layout = {
         height: 400,
-        width: 400,
+        width: 600,
         title: "Patent Category by Volume",
         showlegend: true,
         legend: {
             title: "Category"
         },
-        //grid: { rows: 1, columns: 2 }
+        grid: { rows: 1, columns: 2 }
 
     };
 
@@ -102,55 +103,6 @@ d3.csv("patent_eas_cleaned2.csv", function (data) {
 
 
 
-  //   // Create the Traces
-  //   var trace1 = {
-  //     x: data.patents.applications.app_n,
-  //     y: data.high_jump,
-  //     mode: "markers",
-  //     type: "scatter",
-  //     name: "high jump",
-  //     marker: {
-  //       color: "#2077b4",
-  //       symbol: "hexagram"
-  //     }
-  //   };
-
-  //   var trace2 = {
-  //     x: data.year,
-  //     y: data.discus_throw,
-  //     mode: "markers",
-  //     type: "scatter",
-  //     name: "discus throw",
-  //     marker: {
-  //       color: "orange",
-  //       symbol: "diamond-x"
-  //     }
-  //   };
-
-  //   var trace3 = {
-  //     x: data.year,
-  //     y: data.long_jump,
-  //     mode: "markers",
-  //     type: "scatter",
-  //     name: "long jump",
-  //     marker: {
-  //       color: "rgba(156, 165, 196, 1.0)",
-  //       symbol: "cross"
-  //     }
-  //   };
-
-  //   // Create the data array for the plot
-  //   var data = [trace1, trace2, trace3];
-
-  //   // Define the plot layout
-  //   var layout = {
-  //     title: "Olympic trends over the years",
-  //     xaxis: { title: "Year" },
-  //     yaxis: { title: "Olympic Event" }
-  //   };
-
-  //   // Plot the chart to a div tag with id "plot"
-  //   Plotly.newPlot("plot", data, layout);
 
 
 // buildPlot();
@@ -167,19 +119,6 @@ d3.csv("patent_eas_cleaned2.csv", function (data) {
 //         .text(sample)
 //         .property("value", sample);
 //     });
-
-//     // Use the first sample from the list to build the initial plots
-//     const firstSample = sampleNames[0];
-//     buildCharts(firstSample);
-//     buildMetadata(firstSample);
-//   });
-// }
-
-// function optionChanged(newSample) {
-//   // Fetch new data each time a new sample is selected
-//   buildCharts(newSample);
-//   buildMetadata(newSample);
-// }
 
 // // Initialize the dashboard
 // init();
