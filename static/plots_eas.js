@@ -19,27 +19,85 @@ d3.json(url).then(function (data) {
 }
 )
 //This is where I tried to drill down into the data 
-//without resorting to csv.
-  // for (var i = 0; i < data.patents.length; i++) {
-  //   var patent = data.patents[i];
-  //   console.log(patent);
+//without resorting to csv. It doesn't work.
+// for (var i = 0; i < data.patents.length; i++) {
+//   var patent = data.patents[i];
+//   console.log(patent);
 
-  //   //console.log(patent.applications);
-  //   // patent.forEach((app)=> {
+//   //console.log(patent.applications);
+//   // patent.forEach((app)=> {
+//   //   Object.entries(app).forEach(([key, value]) => {
+//   //     //console.log(key, value);
+//   //   })
+//   // })
+//   }
+//}
+
+//This is where my line graph should go
+d3.csv("patent_eas_cleaned_nocpc2.csv", function (response) {
+    console.log(response);
+
+    function unpack(rows, key) {
+        return rows.map(function(row) { return row[key]; });
+      }
+    //Build line chart
+    var trace1 = {
+        type: "scatter",
+        mode: "lines",
+        name: name,
+        x: response.app_id,
+        y: response.app_number,
+        line: {
+            color: "#17BECF"
+        }
+    };
+
+    var data = [trace1];
+
+    var layout = {
+        title: `Patents Filed by Date`,
+        xaxis: {
+            range:  ['2018-17-01', '2019-12-31'],
+            type: "date"
+        },
+        yaxis: {
+            autorange: true,
+            type: "linear"
+        }
+    };
+
+    Plotly.newPlot("plot", data, layout);
+
+});
 
 
+//This is where my pie chart should go
+d3.csv("patent_eas_cleaned2.csv", function (data) {
+    //console.log(data);
+    pieValues = data.app_number;
+    pieLabels = data.cpc_section_id;
+    //console.log(pieLabels);
+    var data = [{
+        values: pieValues,
+        labels: pieLabels,
+        type: 'pie'
+    }];
 
+    var layout = {
+        height: 400,
+        width: 400,
+        title: "Patent Category by Volume",
+        showlegend: true,
+        legend: {
+            title: "Category"
+        },
+        //grid: { rows: 1, columns: 2 }
 
-  //   //   Object.entries(app).forEach(([key, value]) => {
-  //   //     //console.log(key, value);
-  //   //   })
-  //   // })
-  //   }
-  //}
+    };
 
-d3.csv("patent_eas_cleaned_nocpc.csv", function(data) {
-    console.log(data);
-})
+    Plotly.newPlot('pie', data, layout);
+
+});
 
 
 

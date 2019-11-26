@@ -9,6 +9,10 @@ d3.json(url).then(function (data) {
 
   console.log(data.patents);
 
+ // var graph = d3.select("plot");
+
+}
+)
 
 
   // for (var i = 0; i < data.patents.length; i++) {
