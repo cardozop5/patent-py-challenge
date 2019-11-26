@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, send_file
+from flask import Flask, render_template, send_file, Markup
 
 
 app = Flask(__name__)
@@ -9,10 +9,9 @@ app = Flask(__name__)
 @app.route("/")
 
 def home():
-    map_html = with open('patentmap.html', 'r')
-    return render_template("patentmap.html", map_html = Markup(map_html))
+    map_html = open('templates/patentmap.html', 'r').read()
+    return render_template("index1.html", map_html = Markup(map_html))
 
 
 if __name__ == "__main__":
-
     app.run(debug=True)
