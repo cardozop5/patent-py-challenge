@@ -19,17 +19,13 @@ d3.json(url).then(function (data) {
 }
 )
 //This is where I tried to drill down into the data 
-//without resorting to csv.
+//without resorting to csv. It doesn't work.
 // for (var i = 0; i < data.patents.length; i++) {
 //   var patent = data.patents[i];
 //   console.log(patent);
 
 //   //console.log(patent.applications);
 //   // patent.forEach((app)=> {
-
-
-
-
 //   //   Object.entries(app).forEach(([key, value]) => {
 //   //     //console.log(key, value);
 //   //   })
@@ -37,19 +33,20 @@ d3.json(url).then(function (data) {
 //   }
 //}
 
-d3.csv("patent_eas_cleaned_nocpc2.csv", function (data) {
-    console.log(data);
+//This is where my line graph should go
+d3.csv("patent_eas_cleaned_nocpc2.csv", function (response) {
+    console.log(response);
 
-
-
-
+    function unpack(rows, key) {
+        return rows.map(function(row) { return row[key]; });
+      }
     //Build line chart
     var trace1 = {
         type: "scatter",
         mode: "lines",
         name: name,
-        x: data.app_date,
-        y: data.app_number,
+        x: response.app_id,
+        y: response.app_number,
         line: {
             color: "#17BECF"
         }
@@ -60,7 +57,7 @@ d3.csv("patent_eas_cleaned_nocpc2.csv", function (data) {
     var layout = {
         title: `Patents Filed by Date`,
         xaxis: {
-            //range: [startDate, endDate],
+            range:  ['2018-17-01', '2019-12-31'],
             type: "date"
         },
         yaxis: {
@@ -73,6 +70,34 @@ d3.csv("patent_eas_cleaned_nocpc2.csv", function (data) {
 
 });
 
+
+//This is where my pie chart should go
+d3.csv("patent_eas_cleaned2.csv", function (data) {
+    //console.log(data);
+    pieValues = data.app_number;
+    pieLabels = data.cpc_section_id;
+    //console.log(pieLabels);
+    var data = [{
+        values: pieValues,
+        labels: pieLabels,
+        type: 'pie'
+    }];
+
+    var layout = {
+        height: 400,
+        width: 400,
+        title: "Patent Category by Volume",
+        showlegend: true,
+        legend: {
+            title: "Category"
+        },
+        //grid: { rows: 1, columns: 2 }
+
+    };
+
+    Plotly.newPlot('pie', data, layout);
+
+});
 
 
 

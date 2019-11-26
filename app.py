@@ -8,7 +8,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, Markup
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -34,7 +34,9 @@ Samples = Base.classes.samples
 @app.route("/")
 def index():
     """Return the homepage."""
-    return render_template("index.html")
+
+    map_html = with open('patentmap.html', 'r')
+    return render_template("patentmap.html", map_html = Markup(map_html))
 
 
 @app.route("/names")
