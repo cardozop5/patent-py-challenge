@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    
+    <style>
+        .row {
+            text-align: center;
+        }
+    </style>
+
+<div class='container'>
+    <div class='row'>
+  <h2> Total No Patents/Inventors By Top Corporations In The USA.</h2>
+
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Patent App</title>
+
+
+    <!-- Leaflet CSS & JS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+        integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+        crossorigin=""></script>
+
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" /> -->
+    <!-- <link href="style.css" rel="stylesheet" /> -->
+    <!-- Our CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
+    <!-- !-- Leaflet-Choropleth JavaScript --> 
+    <script type="text/javascript" src="choropleth.js"></script>
+
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://43087-45646037-gh.circle-artifacts.com/0/dist/plotly.min.js"></script>
+</head>
+
+<body>
+    <!-- <div id="root"></div> -->
+    <!-- <div id="map"></div> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <!-- <script src="https://d3js.org/d3-request.v1.min.js"></script> -->
+
+    <div class="well">
+        
+    </div>
+
+    <button onclick="update('assignee_total_num_patents')">Patents</button>
+    <button onclick="update('assignee_total_num_inventors')">Inventors</button>
+
+    <div id="chart"></div>
+    <div id="myDiv2"></div>
+
+    <script type="text/javascript" src="config.js"></script>
+    <!-- <script type="text/javascript" src="logic.js"></script> -->
+    <script type="text/javascript" src="js/chart.js"></script>
+    <script type="text/javascript" src="js/app2.js"></script>
+    <!-- <script>
+        d3.json("/path/to/sample.json", callback);
+    </script> -->
+</body>
+
+</html>
