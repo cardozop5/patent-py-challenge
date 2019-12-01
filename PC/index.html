@@ -4,6 +4,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    
+    <style>
+        .row {
+            text-align: center;
+        }
+    </style>
+
+<div class='container'>
+    <div class='row'>
+  <h2> Total No Patents/Inventors By Top Corporations In The USA.</h2>
+
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <title>Patent App</title>
@@ -48,8 +61,8 @@
         
     </div>
 
-    <button onclick="update('assignee_total_num_patents')">Total_num_patents</button>
-    <button onclick="update('assignee_total_num_inventors')">Total_num_inventors</button>
+    <button onclick="update('assignee_total_num_patents')">Patents</button>
+    <button onclick="update('assignee_total_num_inventors')">Inventors</button>
 
     <div id="chart"></div>
     <div id="myDiv2"></div>
