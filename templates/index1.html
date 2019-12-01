@@ -10,12 +10,14 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
 
-    <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
 
     <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="carousel.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
   crossorigin=""/>
@@ -23,8 +25,7 @@
   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
   crossorigin=""></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://43087-45646037-gh.circle-artifacts.com/0/dist/plotly.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 </head>
 <body>
@@ -47,9 +48,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else</a>
+            <a class="dropdown-item" href="index2.html">Worldwide map of Patents</a>
+            <a class="dropdown-item" href="index.html">More patents</a>
           </div>
         </li>
       </ul>
@@ -70,33 +70,12 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img class="first-slide" src="https://www.hafactory.it/files/2015/12/brevetto.jpg" width="400" height="300" alt="first slide">
-        <div class="container">
-          <div class="carousel-caption text-left">
-            <h1>Example</h1>
-            <p>yolo</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sup</a></p>
-          </div>
-        </div>
       </div>
       <div class="carousel-item">
-        <img class="second-slide" src="https://evenmix.com/wp-content/uploads/2018/01/patented.png" width="400" height="300" alt="second slide">
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Hello</h1>
-            <p>Part 2</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Hi</a></p>
-          </div>
-        </div>        
+        <img class="second-slide" src="https://evenmix.com/wp-content/uploads/2018/01/patented.png" width="400" height="300" alt="second slide">        
       </div>
       <div class="carousel-item">
         <img class="third-slide" src="https://odi-x.com/wp-content/uploads/2017/10/related_patent_gd_150914-300x300.jpg" width="400" height="300" alt="third slide">
-        <div class="container">
-          <div class="carousel-caption text-right">
-            <h1>yeah</h1>
-            <p>Part 3</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Hello</a></p>
-          </div>
-        </div>
       </div>
     </div>
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -108,45 +87,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-  <!-- Marketing messaging and featurettes
-  ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
-
-  <!-- <div class="container marketing"> -->
-
-    <!-- Three columns of text below the carousel -->
-    <!-- <div class="row">
-      <div class="col-lg-4">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div><!/.col-lg-4 -->
-      <!-- <div class="col-lg-4">
-        <h2>Heading</h2>
-        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div><!/.col-lg-4 -->
-      <!-- <div class="col-lg-4">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div><!/.col-lg-4 -->
-    <!-- </div>/.row --> 
-
-
     <!-- START THE FEATURETTES -->
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">{{ map_html }}</h2>
-      </div>
-      <div class="col-md-5">This graph shows the number of patents worldwide and is separated by country. Each location is determined by latitude and longitude and the circles are colored by three continents. The circles contain a certain amount of patents and each time you click them it triangulates into a singular patent which is lists the country that patent is located in.
-      </div>
-    </div>
-
     <hr class="featurette-divider">
 
     <div class="row featurette">
@@ -163,21 +104,6 @@
       <div class="col-md-5">This graph shows the amount of patents filed each day from January 2018 to November 2018. Most patents were filed in the first quarter of the year from January 2018 to March 2018. The least amount of patents were filed during November 2018.
       </div>
     </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div id="myDiv2"></div>
-      <script src="app2.js"></script>
-    </div>
-    
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div id="chart"></div>
-      <script src="chart.js"></script>
-    </div>
-
     <hr class="featurette-divider">
 
     <!-- /END THE FEATURETTES -->
@@ -192,9 +118,10 @@
     <p class="text-center">Elisabeth Shaw, Mustafa Ancin, Patrick Cardozo, Antonia Njoku</p>
   </footer>
 </main>
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-<script src="config01.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 
 
   </body>
