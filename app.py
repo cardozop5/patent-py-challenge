@@ -1,5 +1,10 @@
 
 from flask import Flask, render_template, send_file, Markup
+import plotly
+import plotly.graph_objs as go
+import json
+import pandas as pd
+import numpy as np
 
 
 app = Flask(__name__)
