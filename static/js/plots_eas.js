@@ -20,7 +20,7 @@ function unpack(rows, index) {
     });
 }
 //This is where my line graph should go
-d3.csv("static/data/patent_eas_cleaned_nocpc2.csv").then(response => {
+d3.csv("patent_eas_cleaned_nocpc2.csv").then(response => {
     console.log("response", response);
 
     app_id = unpackNumber(response, "app_id")
@@ -70,7 +70,7 @@ d3.csv("static/data/patent_eas_cleaned_nocpc2.csv").then(response => {
 
 
 //This is where my pie chart should go
-d3.csv("static/data/patent_eas_cleaned2.csv").then(data => {
+d3.csv("patent_eas_cleaned2.csv").then(data => {
     console.log("data", data);
     cpc_section_id = unpack(data, "cpc_section_id")
     //console.log("app_date", app_date)

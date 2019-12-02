@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_file, Markup
+from flask import Flask, render_template, send_file, Markup, jsonify
 
 import os
 
@@ -10,7 +10,6 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 
-from flask import Flask, jsonify, 
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)

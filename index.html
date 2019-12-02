@@ -10,10 +10,9 @@
   <title>Page</title>
   <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
   <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="static/css/starter-template.css">
+  <link href="starter-template.css" rel="stylesheet">
 </head>
 <body>
-  <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#">Carousel</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle Navigation">
@@ -40,10 +39,22 @@
         </form>
       </div>
     </nav>
-  </header>
-  {{ map_html }}
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <div class="well">
+        
+      </div>
+  
+      <button onclick="update('assignee_total_num_patents')">Patents</button>
+      <button onclick="update('assignee_total_num_inventors')">Inventors</button>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div id="chart"></div>
+<script type="text/javascript" src="chart.js"></script>
+<div id="myDiv2"></div>
+<script type="text/javascript" src="app2.js"></script>
+<script type="text/javascript" src=""
+</div>
 
 </body>
 

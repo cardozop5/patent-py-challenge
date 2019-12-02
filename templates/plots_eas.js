@@ -20,7 +20,7 @@ function unpack(rows, index) {
     });
 }
 //This is where my line graph should go
-d3.csv("patent_eas_cleaned_nocpc2.csv").then(response => {
+d3.csv("/static/patent_eas_cleaned_nocpc2.csv").then(response => {
     console.log("response", response);
 
     app_id = unpackNumber(response, "app_id")
@@ -115,7 +115,6 @@ d3.csv("patent_eas_cleaned2.csv").then(data => {
     Plotly.newPlot('pie', data, layout);
 
 });
-
 
 
 

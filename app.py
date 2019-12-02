@@ -1,5 +1,6 @@
 
 from flask import Flask, render_template, send_file, Markup
+from flask_pymongo import PyMongo
 import plotly
 import plotly.graph_objs as go
 import json
@@ -8,6 +9,9 @@ import numpy as np
 
 
 app = Flask(__name__)
+app.config['MONGO_DBNAME'] = 'patent1'
+app.config["MONGO_URI"] = "mongodb://localhost:27017/patent1"
+mongo = PyMongo(app)
 
 # render out an index page
 
@@ -17,7 +21,7 @@ def home():
     return render_template("index2.html", map_html = Markup(map_html))
 
 @app.route("/homepage")
-def homepage():
+def homepage(): 
     return render_template("index1.html")
 
 @app.route("/states")
