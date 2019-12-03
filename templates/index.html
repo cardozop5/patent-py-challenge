@@ -11,6 +11,24 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
   <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="static/css/starter-template.css">
+  <script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    .row {
+        text-align: center;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
+<div class="well">
+    <div class='container'>
+        <div class='row'>
+      <h2> Total No Patents/Inventors By Top Corporations In The USA.</h2>
+    
+        <!-- Plotly.js -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <title>Patent App</title>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -36,26 +54,22 @@
         
       </div>
     </nav>
-
-    <div class='container'>
-      <div class='row'>
-    <h2> Total No Patents/Inventors By Top Corporations In The USA.</h2>
-  
-      <!-- Plotly.js -->
-      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-      <title>Patent App</title>
-
       
     <div class="well">
+      <div class="container"></div>
+      <div class="row"></div>
+      <h2> Total No Patents/Inventors By Top Corporations In The USA.</h2>
       <div id="chart"></div>
+
+      <button class="btn btn-outline-primary" onclick="update('assignee_total_num_patents')">Patents</button>
+      <button class="btn btn-outline-primary" onclick="update('assignee_total_num_inventors')">Inventors</button>
         
       </div>
     <div class="well">
       <div id="myDiv2"></div>
     </div>
-  
-      <button onclick="update('assignee_total_num_patents')">Patents</button>
-      <button onclick="update('assignee_total_num_inventors')">Inventors</button>
+
+    
       <footer class="container">
           <p class="float-right"><a href="#">Back to top</a></p>
          
