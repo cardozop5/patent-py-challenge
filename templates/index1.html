@@ -32,22 +32,22 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Carousel</a>
+    <a class="navbar-brand" href="/patent_info">homepage</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
+        <li><a style="background-color: lightgray;" href="{{ url_for('patent_info') }}"></a></li>
         <li class="nav-item active">
           <a class="nav-link" href="index1.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="index2.html">Worldwide map of Patents</a>
-            <a class="dropdown-item" href="index.html">More patents</a>
-            <a class="dropdown-item" href="patentmap.html">Intl map of patents</a>
-            <a class="dropdown-item" href="index1.html">US patent information</a>
+            <a class="dropdown-item" href="{{ url_for('home') }}">Worldwide map of Patents</a>
+            <a class="dropdown-item" href="{{ url_for('states') }}">More patents</a>
+            <a class="dropdown-item" href="{{ url_for('patent_info') }}">US patent information</a>
           </div>
         </li>
       </ul>
@@ -118,6 +118,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="{{ url_for('static', filename='plots_eas.js') }}"></script>
+
 
   </body>
 </html>

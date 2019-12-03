@@ -20,13 +20,27 @@ def home():
     map_html = open('templates/patentmap.html', 'r').read()
     return render_template("index2.html", map_html = Markup(map_html))
 
+@app.route("/world")
+def world():
+    return render_template("index2.html")
+
+
 @app.route("/homepage")
-def homepage(): 
+def homepage():
     return render_template("index1.html")
+
+@app.route("/more_patents")
+def more_patents():
+    return render_template("index.html")
 
 @app.route("/states")
 def states():
     return render_template("index.html")
+
+@app.route("/patent_info")
+def patent_info():
+    return render_template("index1.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
